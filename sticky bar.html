@@ -1,0 +1,22 @@
+{% if template contains 'product' %}
+  {% assign featured_image = product.images.first | default: product.featured_image %}
+  <div class="sticky_cart">
+    <div class="product-details">
+      <div class="prd-details prd-details-left">
+        <div class="prd-image-title">
+          <img src="{{ featured_image | img_url: "300x" }}" />
+          <h3>{{ product.title }}</h3>
+        </div>
+      </div>
+      <div class="prd-details prd-details-right">
+      	<div class="prd-image-price-cart">
+          <div class="prd-price">{{ product.price | money }}</div>
+          <div class="cart-btn">
+            <button id="btn-sticky-cart" class="btn">Add To Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endif %}
